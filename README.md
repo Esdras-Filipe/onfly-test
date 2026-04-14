@@ -59,6 +59,7 @@ docker run --rm \
 ```bash
 sudo chmod -R 777 storage/
 sudo chmod 777 .env
+sudo chmod -R 777 vendor/
 ```
 
 ### 4. Suba os containers
@@ -205,7 +206,7 @@ PATCH /api/travel-order/{id}
 Requer perfil de **administrador**.
 
 Body:
-```json
+```json./vendor/bin/sail artisan migrate --seed
 {
     "status": "approved"
 }
