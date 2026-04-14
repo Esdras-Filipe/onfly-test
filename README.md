@@ -34,7 +34,7 @@ Notificações de aprovação e cancelamento foram implementadas via canal `data
 ### 1. Clone o repositório
 
 ```bash
-git clone <url-do-repositorio>
+git clone https://github.com/Esdras-Filipe/onfly-test.git
 cd travel-order
 ```
 
@@ -91,7 +91,7 @@ Basta copiar:
 cp .env.example .env
 ```
 
-As únicas variáveis geradas automaticamente são:
+As únicas variáveis geradas manualmente via comando são:
 
 | Variável | Comando |
 |---|---|
@@ -106,8 +106,8 @@ Após executar o seeder, os seguintes usuários estarão disponíveis:
 
 | Role | E-mail | Senha |
 |---|---|---|
-| Administrador | admin@admin.com | password |
-| Usuário Comum | user@user.com | password |
+| Administrador | admin@admin.com | 123456 |
+| Usuário Comum | user@user.com | 123456 |
 
 ---
 
