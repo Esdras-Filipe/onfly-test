@@ -14,7 +14,7 @@ class TravelOrderUpdateTest extends TestCase
     public function test_admin_can_update_travel_order_status()
     {
         $admin = User::factory()->create([
-            'is_admin' => true
+            'role' => \App\Enums\UserRole::ADMIN->value
         ]);
 
         $order = TravelOrderModel::factory()->create();
@@ -34,7 +34,7 @@ class TravelOrderUpdateTest extends TestCase
     public function test_common_user_cannot_update_status()
     {
         $user = User::factory()->create([
-            'is_admin' => false
+            'role' => \App\Enums\UserRole::COMMON->value
         ]);
 
         $order = TravelOrderModel::factory()->create();

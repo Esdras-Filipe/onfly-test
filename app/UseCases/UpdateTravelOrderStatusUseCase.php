@@ -31,6 +31,7 @@ class UpdateTravelOrderStatusUseCase
         $travelOrderUpdate = new TravelOrder(
             id: $travelOrder->id,
             user_id: $travelOrder->user_id,
+            requester_name: $travelOrder->requester_name,
             destination: $travelOrder->destination,
             departure_date: $travelOrder->departure_date,
             return_date: $travelOrder->return_date,

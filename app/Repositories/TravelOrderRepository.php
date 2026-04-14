@@ -13,7 +13,7 @@ class TravelOrderRepository implements TravelOrderRepositoryInterface
 {
     public function findById(int $id): ?TravelOrder
     {
-        $model = TravelOrderModel::where('id', $id)->first();
+        $model = TravelOrderModel::with('user')->where('id', $id)->first();
         if (!$model)
             return null;
 
@@ -22,7 +22,7 @@ class TravelOrderRepository implements TravelOrderRepositoryInterface
 
     public function findByIdAndUser(int $id, int $userId): ?TravelOrder
     {
-        $model = TravelOrderModel::where('id', $id)->where('user_id', $userId)->first();
+        $model = TravelOrderModel::with('user')->where('id', $id)->where('user_id', $userId)->first();
 
         if (!$model)
             return null;
@@ -40,14 +40,9 @@ class TravelOrderRepository implements TravelOrderRepositoryInterface
             'status'         => $order->status->value
         ]);
 
-        return new TravelOrder(
-            id: $orderCreated->id,
-            user_id: $orderCreated->user_id,
-            destination: $orderCreated->destination,
-            departure_date: $orderCreated->departure_date,
-            return_date: $orderCreated->return_date,
-            status: TravelStatus::from($orderCreated->status),
-        );
+        $orderCreated->load('user');
+
+        return $this->createEntity($orderCreated);
     }
 
     public function update(TravelOrder $order): TravelOrder
@@ -68,6 +63,7 @@ class TravelOrderRepository implements TravelOrderRepositoryInterface
         return new TravelOrder(
             id: $model->id,
             user_id: $model->user_id,
+            requester_name: $model->user->name,
             destination: $model->destination,
             departure_date: $model->departure_date,
             return_date: $model->return_date,
@@ -79,7 +75,7 @@ class TravelOrderRepository implements TravelOrderRepositoryInterface
 
     public function search(ListTravelOrderDTO $travelOrder)
     {
-        $query = TravelOrderModel::query();
+        $query = TravelOrderModel::query()->with('user');
 
         if ($travelOrder->departure_date_from) {
             $query->where('departure_date', '>=', $travelOrder->departure_date_from);
@@ -122,7 +118,7 @@ class TravelOrderRepository implements TravelOrderRepositoryInterface
 
     public function searchWithUserId(ListTravelOrderDTO $travelOrder, int $user_id)
     {
-        $query = TravelOrderModel::query();
+        $query = TravelOrderModel::query()->with('user');
 
         if ($travelOrder->departure_date_from) {
             $query->where('departure_date', '>=', $travelOrder->departure_date_from);

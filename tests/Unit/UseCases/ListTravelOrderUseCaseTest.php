@@ -37,6 +37,7 @@ class ListTravelOrderUseCaseTest extends TestCase
         return new TravelOrder(
             id: $overrides['id']             ?? 1,
             user_id: $overrides['user_id']        ?? 1,
+            requester_name: $overrides['requester_name'] ?? 'Usuário Comum',
             destination: $overrides['destination']    ?? 'Lisboa',
             departure_date: $overrides['departure_date'] ?? '2025-06-01',
             return_date: $overrides['return_date']    ?? '2025-06-10',

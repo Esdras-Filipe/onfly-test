@@ -13,6 +13,7 @@ class TravelOrderResource extends JsonResource
     {
         return [
             'id'             => $this->travelOrder->id,
+            'requester_name' => $this->travelOrder->requester_name,
             'destination'    => $this->travelOrder->destination,
             'departure_date' => $this->travelOrder->departure_date,
             'return_date'    => $this->travelOrder->return_date,

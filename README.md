@@ -239,10 +239,8 @@ A collection já contém:
 
 ## Testes
 
-### Executar somente testes unitários
-
 ```bash
-./vendor/bin/sail artisan test tests/Unit
+./vendor/bin/sail artisan test
 ```
 
 ---

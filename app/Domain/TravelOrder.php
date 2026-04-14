@@ -9,6 +9,7 @@ final class TravelOrder
     public function __construct(
         public readonly ?int $id = null,
         public readonly int $user_id,
+        public readonly string $requester_name,
         public readonly string $destination,
         public readonly string $departure_date,
         public readonly string $return_date,

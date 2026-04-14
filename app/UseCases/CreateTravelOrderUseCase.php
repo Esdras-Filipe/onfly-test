@@ -17,6 +17,7 @@ class CreateTravelOrderUseCase
         $travelOrder = new TravelOrder(
             id: null,
             user_id: auth()->user()->id,
+            requester_name: auth()->user()->name,
             destination: $travelOrderDto->destination,
             departure_date: $travelOrderDto->departure_date,
             return_date: $travelOrderDto->return_date,
