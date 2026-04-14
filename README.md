@@ -20,6 +20,12 @@ Use Cases foram preferidos ao padrão Service Layer por oferecerem isolamento po
 
 Notificações de aprovação e cancelamento foram implementadas via canal `database` do Laravel. Em produção, o canal pode ser estendido para `mail`, `Slack` ou qualquer outro driver sem alteração da lógica de negócio.
 
+### 📊 Diagrama da Arquitetura
+
+<p align="center">
+  <img src="public/request_flow_diagram.svg" width="700">
+</p>
+
 ## Decisões Técnicas
 
 ### Uso do Laravel Sail
