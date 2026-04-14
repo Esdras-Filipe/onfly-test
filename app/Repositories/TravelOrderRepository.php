@@ -7,6 +7,7 @@ use App\Enums\TravelStatus;
 use App\Models\TravelOrderModel;
 use App\Repositories\Contracts\TravelOrderRepositoryInterface;
 use App\DTO\ListTravelOrderDTO;
+use App\Models\User;
 
 class TravelOrderRepository implements TravelOrderRepositoryInterface
 {
@@ -162,5 +163,10 @@ class TravelOrderRepository implements TravelOrderRepositoryInterface
         });
 
         return $paginator;
+    }
+
+    public function findUserById(int $userId): User
+    {
+        return User::findOrFail($userId);
     }
 }

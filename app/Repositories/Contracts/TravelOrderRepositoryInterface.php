@@ -5,7 +5,6 @@ namespace App\Repositories\Contracts;
 use App\Domain\TravelOrder;
 use App\DTO\ListTravelOrderDTO;
 use App\Models\User;
-use Illuminate\Support\Collection;
 
 interface TravelOrderRepositoryInterface
 {
