@@ -35,7 +35,7 @@ Notificações de aprovação e cancelamento foram implementadas via canal `data
 
 ```bash
 git clone https://github.com/Esdras-Filipe/onfly-test.git
-cd travel-order
+cd onfly-test
 ```
 
 ### 2. Copie o arquivo de ambiente
