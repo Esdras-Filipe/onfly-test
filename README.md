@@ -88,25 +88,6 @@ sudo chmod -R 777 vendor/
 
 ---
 
-## Configuração do Ambiente
-
-O projeto utiliza Laravel Sail. Todas as variáveis já estão pré-configuradas no `.env.example`.
-
-Basta copiar:
-
-```bash
-cp .env.example .env
-```
-
-As únicas variáveis geradas manualmente via comando são:
-
-| Variável | Comando |
-|---|---|
-| `APP_KEY` | `sail artisan key:generate` |
-| `JWT_SECRET` | `sail artisan jwt:secret` |
-
----
-
 ## Usuários Padrão
 
 Após executar o seeder, os seguintes usuários estarão disponíveis:
