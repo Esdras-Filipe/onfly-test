@@ -1,0 +1,239 @@
+{
+  "info": {
+    "_postman_id": "60c016e4-7938-4991-b37a-56a5416172c2",
+    "name": "Onfly Test",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "16305286"
+  },
+  "item": [
+    {
+      "name": "Travel",
+      "item": [
+        {
+          "name": "Create Travel Order",
+          "protocolProfileBehavior": {
+            "disabledSystemHeaders": {}
+          },
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xL2FwaS9sb2dpbiIsImlhdCI6MTc3NjA0MTc0NywiZXhwIjoxNzc2MDQ1MzQ3LCJuYmYiOjE3NzYwNDE3NDcsImp0aSI6InVydFpTNThOT0dvN2VNUm8iLCJzdWIiOiIzIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.r8A7OoMqm7JmiSbCZIYGaLxhK_kbgJC57gIj-aTX25c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"destination\": \"TEste\",\n    \"departure_date\": \"2026-01-01\",\n    \"return_date\": \"2026-01-30\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_Development}}api/travel-order",
+              "host": [
+                "{{URL_Development}}api"
+              ],
+              "path": [
+                "travel-order"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show Travel Order",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{URL_Development}}api/travel-order/1",
+              "host": [
+                "{{URL_Development}}api"
+              ],
+              "path": [
+                "travel-order",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Status Travel Order",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"status\": \"approved\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_Development}}api/travel-order/1",
+              "host": [
+                "{{URL_Development}}api"
+              ],
+              "path": [
+                "travel-order",
+                "1"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Show All Travel Order",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xL2FwaS9sb2dpbiIsImlhdCI6MTc3NjA0MTc0NywiZXhwIjoxNzc2MDQ1MzQ3LCJuYmYiOjE3NzYwNDE3NDcsImp0aSI6InVydFpTNThOT0dvN2VNUm8iLCJzdWIiOiIzIiwicHJ2IjoiMjNiZDVjODk0OWY2MDBhZGIzOWU3MDFjNDAwODcyZGI3YTU5NzZmNyJ9.r8A7OoMqm7JmiSbCZIYGaLxhK_kbgJC57gIj-aTX25c",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{URL_Development}}api/travel-order?departure_date_from=2025-01-01&departure_date_to=2026-01-01",
+              "host": [
+                "{{URL_Development}}api"
+              ],
+              "path": [
+                "travel-order"
+              ],
+              "query": [
+                {
+                  "key": "destination",
+                  "value": "Vale do Silicio",
+                  "type": "text",
+                  "disabled": true
+                },
+                {
+                  "key": "departure_date_from",
+                  "value": "2025-01-01"
+                },
+                {
+                  "key": "departure_date_to",
+                  "value": "2026-01-01"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "User",
+      "item": [
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"email\": \"user@user.com\",\n    \"password\": 123456\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{URL_Development}}api/login?",
+              "host": [
+                "{{URL_Development}}api"
+              ],
+              "path": [
+                "login"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": null
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "URL_Development",
+      "value": ""
+    }
+  ]
+}

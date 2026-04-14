@@ -20,6 +20,19 @@ Use Cases foram preferidos ao padrão Service Layer por oferecerem isolamento po
 
 Notificações de aprovação e cancelamento foram implementadas via canal `database` do Laravel. Em produção, o canal pode ser estendido para `mail`, `Slack` ou qualquer outro driver sem alteração da lógica de negócio.
 
+## Decisões Técnicas
+
+### Uso do Laravel Sail
+
+Foi utilizado o Laravel Sail como ambiente de desenvolvimento para gerenciamento dos containers Docker.
+
+A escolha foi feita com o objetivo de:
+
+- Reduzir o tempo de configuração do ambiente
+- Evitar a necessidade de configuração manual de Dockerfiles e docker-compose
+- Garantir um ambiente padronizado e facilmente reproduzível
+- Focar o desenvolvimento na regra de negócio ao invés da infraestrutura
+
 ---
 
 ## Requisitos
@@ -196,6 +209,21 @@ Body:
 Valores aceitos: `approved`, `cancelled`
 
 ---
+
+## Documentação (Postman)
+
+Na raiz do projeto há um arquivo JSON contendo a collection do Postman com todos os endpoints da API.
+
+Para utilizar:
+
+1. Abra o Postman
+2. Clique em **Import**
+3. Selecione o arquivo `Onfly_Test.postman_collection.json` presente na raiz do projeto
+
+A collection já contém:
+- Todas as rotas configuradas
+- Exemplos de requisição
+- Estrutura de autenticação via Bearer Token
 
 ## Regras de Negócio
 
